@@ -41,7 +41,7 @@ public class PianoRoll : MonoBehaviour
 
                 GameObject newSquare = Instantiate(square, position, Quaternion.identity);
 
-                Note note = newSquare.GetComponent<Note>();
+                NoteBtn note = newSquare.GetComponent<NoteBtn>();
                 note.Setup(y, x, SetNote);
             }
         }

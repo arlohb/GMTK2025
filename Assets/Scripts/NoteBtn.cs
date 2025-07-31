@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class Note : MonoBehaviour, IPointerClickHandler
+public class NoteBtn : MonoBehaviour, IPointerClickHandler
 {
     public Color disabledColor;
     public Color enabledColor;
