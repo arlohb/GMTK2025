@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PianoRoll : MonoBehaviour
@@ -5,6 +6,7 @@ public class PianoRoll : MonoBehaviour
     public float padding = 1;
 
     public GameObject square;
+    public GameObject rowLabel;
 
     public Note[] instruments;
     private AudioSource[] sources;
@@ -23,23 +25,30 @@ public class PianoRoll : MonoBehaviour
         float yHalfSize = Camera.main.orthographicSize;
         float xHalfSize = yHalfSize * Camera.main.aspect;
 
-        GetComponent<Transform>().position = new(-xHalfSize + 1.5f, 0, 0);
+        GetComponent<Transform>().position = new(-xHalfSize + 4.0f, 0, 0);
 
         for (int y = 0; y < instruments.Length; y++)
         {
+            float yPos = (ySize + padding) * y;
+
+            GameObject newRowLabel = Instantiate(rowLabel, transform);
+            newRowLabel.GetComponent<RectTransform>().pivot = new(1f, 0.5f);
+            newRowLabel.GetComponent<RectTransform>().localPosition = new(
+                -1.5f,
+                yPos,
+                0
+            );
+            newRowLabel.GetComponent<TextMeshPro>().text = instruments[y].playerMove
+                + "\n" + instruments[y].source.name;
+
             for (int x = 0; x < beatManager.beatCount; x++)
             {
-                Vector3 position = new(
+                GameObject newSquare = Instantiate(square, transform);
+                newSquare.transform.localPosition = new(
                     (xSize + padding) * x,
-                    (ySize + padding) * y,
+                    yPos,
                     0
                 );
-
-                GameObject newSquare = Instantiate(
-                    square,
-                    gameObject.transform
-                );
-                newSquare.transform.localPosition = position;
 
                 NoteBtn note = newSquare.GetComponent<NoteBtn>();
                 note.Setup(y, x, SetNote);
