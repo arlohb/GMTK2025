@@ -20,6 +20,11 @@ public class PianoRoll : MonoBehaviour
         float xSize = square.GetComponent<Renderer>().bounds.size.x;
         float ySize = square.GetComponent<Renderer>().bounds.size.y;
 
+        float yHalfSize = Camera.main.orthographicSize;
+        float xHalfSize = yHalfSize * Camera.main.aspect;
+
+        GetComponent<Transform>().position = new(-xHalfSize + 1.5f, 0, 0);
+
         for (int y = 0; y < instruments.Length; y++)
         {
             for (int x = 0; x < beatManager.beatCount; x++)
@@ -30,7 +35,11 @@ public class PianoRoll : MonoBehaviour
                     0
                 );
 
-                GameObject newSquare = Instantiate(square, position, Quaternion.identity);
+                GameObject newSquare = Instantiate(
+                    square,
+                    gameObject.transform
+                );
+                newSquare.transform.localPosition = position;
 
                 NoteBtn note = newSquare.GetComponent<NoteBtn>();
                 note.Setup(y, x, SetNote);
