@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Snare
   m_EditorClassIdentifier: 
   source: {fileID: 8300000, guid: 12d04ae2e18e34174bc4b2c6f385f2ed, type: 3}
+  enemyMove: RightSwipe

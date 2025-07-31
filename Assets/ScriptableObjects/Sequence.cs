@@ -4,4 +4,9 @@ using UnityEngine;
 public class Sequence : ScriptableObject
 {
     public Note[] notes;
+
+    public Note GetNote(int beat)
+    {
+        return notes[beat - 1];
+    }
 }

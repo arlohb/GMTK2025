@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -20,6 +22,12 @@ public class PianoRoll : MonoBehaviour
     private AudioSource[] sources;
 
     private bool[,] notes;
+    private readonly List<Action<int, int>> listeners = new();
+
+    public void RegisterListener(Action<int, int> action)
+    {
+        listeners.Add(action);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,6 +69,11 @@ public class PianoRoll : MonoBehaviour
     void PlayBeat()
     {
         Debug.Log("Playing beat " + currentBar + "-" + currentBeat);
+
+        foreach (var action in listeners)
+        {
+            action(currentBar, currentBeat);
+        }
 
         for (int i = 0; i < instruments.Length; i++)
         {

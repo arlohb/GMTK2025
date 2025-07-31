@@ -15,3 +15,5 @@ MonoBehaviour:
   notes:
   - {fileID: 11400000, guid: fb3f9d70b30068ec9b8a33e72958e05f, type: 2}
   - {fileID: 11400000, guid: fe1783004705cedc88af9433f0c7ea4d, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: fe1783004705cedc88af9433f0c7ea4d, type: 2}

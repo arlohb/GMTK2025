@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -5,4 +6,5 @@ using UnityEngine.Audio;
 public class Note : ScriptableObject
 {
     public AudioResource source;
+    public string enemyMove;
 }

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Kicker
   m_EditorClassIdentifier: 
   source: {fileID: 8300000, guid: 2ddbfad8d9d3d6d96a0c44ee5d005d6f, type: 3}
+  enemyMove: LeftSwipe
