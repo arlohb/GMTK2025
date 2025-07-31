@@ -470,8 +470,8 @@ MonoBehaviour:
   bpm: 100
   square: {fileID: 5856300670068808718, guid: 51b25cdbcff8357ff900349b141b5ecf, type: 3}
   instruments:
-  - {fileID: 8300000, guid: 2ddbfad8d9d3d6d96a0c44ee5d005d6f, type: 3}
-  - {fileID: 8300000, guid: 12d04ae2e18e34174bc4b2c6f385f2ed, type: 3}
+  - {fileID: 11400000, guid: fb3f9d70b30068ec9b8a33e72958e05f, type: 2}
+  - {fileID: 11400000, guid: fe1783004705cedc88af9433f0c7ea4d, type: 2}
 --- !u!4 &1337377820
 Transform:
   m_ObjectHideFlags: 0

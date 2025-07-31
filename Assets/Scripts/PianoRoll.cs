@@ -16,7 +16,7 @@ public class PianoRoll : MonoBehaviour
 
     public GameObject square;
 
-    public AudioResource[] instruments;
+    public Note[] instruments;
     private AudioSource[] sources;
 
     private bool[,] notes;
@@ -49,7 +49,7 @@ public class PianoRoll : MonoBehaviour
         sources = new AudioSource[instruments.Length];
         for (int i = 0; i < instruments.Length; i++) {
             AudioSource source = gameObject.AddComponent<AudioSource>();
-            source.resource = instruments[i];
+            source.resource = instruments[i].source;
             sources[i] = source;
         }
 
