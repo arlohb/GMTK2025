@@ -13,10 +13,13 @@ public class BeatManager : MonoBehaviour
 
     public int beatCount = 8;
     public int bpm = 100;
+    [HideInInspector]
+    public int CurrentBeat { get; private set; } = 0;
+    [HideInInspector]
+    public int CurrentBar { get; private set; } = 1;
+
     private float beatLength;
     private float barLength;
-    private int currentBeat = 0;
-    private int currentBar = 1;
     private float startTime;
     private readonly List<Action<int, int>> listeners = new();
 
@@ -36,12 +39,20 @@ public class BeatManager : MonoBehaviour
 
     void PlayBeat()
     {
-        Debug.Log("Playing beat " + currentBar + "-" + currentBeat);
+        Debug.Log("Playing beat " + CurrentBar + "-" + CurrentBeat);
 
         foreach (var action in listeners)
         {
-            action(currentBar, currentBeat);
+            action(CurrentBar, CurrentBeat);
         }
+    }
+
+    public float GetBeatFloat()
+    {
+        float currentTime = Time.time - startTime;
+        float timeInBar = currentTime % barLength;
+        float beat = 1f + timeInBar / beatLength;
+        return beat;
     }
 
     void Update()
@@ -49,21 +60,20 @@ public class BeatManager : MonoBehaviour
         float currentTime = Time.time - startTime;
         int bar = 1 + (int)(currentTime / barLength);
 
-        if (bar == currentBar)
+        if (bar == CurrentBar)
         {
-            float timeInBar = currentTime % barLength;
-            int beat = 1 + (int)(timeInBar / beatLength);
+            int beat = (int)GetBeatFloat();
 
-            if (beat != currentBeat)
+            if (beat != CurrentBeat)
             {
-                currentBeat = beat;
+                CurrentBeat = beat;
                 PlayBeat();
             }
         }
         else
         {
-            currentBeat = 1;
-            currentBar = bar;
+            CurrentBeat = 1;
+            CurrentBar = bar;
             PlayBeat();
         }
     }

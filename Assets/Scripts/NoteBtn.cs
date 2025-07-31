@@ -15,13 +15,20 @@ public class NoteBtn : MonoBehaviour, IPointerClickHandler
     private Action<int, int, bool> setNote;
 
     private bool isEnabled = false;
+    public bool IsEnabled {
+        get => isEnabled;
+        set
+        {
+            isEnabled = value;
+            UpdateColor();
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Test" + instrument + beat);
-        isEnabled = !isEnabled;
-        setNote(instrument, beat, isEnabled);
-        UpdateColor();
+        IsEnabled = !IsEnabled;
+        setNote(instrument, beat, IsEnabled);
     }
 
     public void Setup(int instrument, int beat, Action<int, int, bool> setNote)
@@ -33,7 +40,7 @@ public class NoteBtn : MonoBehaviour, IPointerClickHandler
 
     public void UpdateColor()
     {
-        GetComponent<SpriteRenderer>().color = isEnabled
+        GetComponent<SpriteRenderer>().color = IsEnabled
             ? enabledColor
             : disabledColor;
     }

@@ -8,16 +8,28 @@ public class PianoRoll : MonoBehaviour
     public GameObject square;
     public GameObject rowLabel;
 
+    [Range(0f, 1f)]
+    public float earlyAllow = 0.2f;
+    [Range(0f, 1f)]
+    public float lateAllow = 0.4f;
+
     public Note[] instruments;
     private AudioSource[] sources;
 
+    private NoteBtn[,] noteBtns;
     private bool[,] notes;
+    bool GetNote(int note, int beat) => notes[note, beat - 1];
+    void SetNote(int note, int beat, bool value) {
+        notes[note, beat - 1] = value;
+        noteBtns[note, beat - 1].IsEnabled = value;
+    }
 
     void Start()
     {
         BeatManager beatManager = BeatManager.Get();
         beatManager.RegisterListener(PlayBeat);
         notes = new bool[instruments.Length, beatManager.beatCount];
+        noteBtns = new NoteBtn[instruments.Length, beatManager.beatCount];
 
         float xSize = square.GetComponent<Renderer>().bounds.size.x;
         float ySize = square.GetComponent<Renderer>().bounds.size.y;
@@ -50,16 +62,20 @@ public class PianoRoll : MonoBehaviour
                     0
                 );
 
-                NoteBtn note = newSquare.GetComponent<NoteBtn>();
-                note.Setup(y, x, SetNote);
+                NoteBtn noteBtn = newSquare.GetComponent<NoteBtn>();
+                noteBtn.Setup(y, x + 1, SetNote);
+                noteBtns[y, x] = noteBtn;
             }
         }
 
         sources = new AudioSource[instruments.Length];
-        for (int i = 0; i < instruments.Length; i++) {
+        for (int i = 0; i < instruments.Length; i++)
+        {
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.resource = instruments[i].source;
             sources[i] = source;
+
+            instruments[i].inputAction.Enable();
         }
 
     }
@@ -68,18 +84,48 @@ public class PianoRoll : MonoBehaviour
     {
         for (int i = 0; i < instruments.Length; i++)
         {
-            if (!notes[i, currentBeat - 1]) continue;
+            if (!GetNote(i, currentBeat)) continue;
 
             sources[i].Play();
         }
     }
 
-    void Update()
+    void ClearBeat(int beat)
     {
+        for (int i = 0; i < instruments.Length; i++)
+        {
+            SetNote(i, beat, false);
+        }
     }
 
-    void SetNote(int instrument, int beat, bool value)
+    void Update()
     {
-        notes[instrument, beat] = value;
+        BeatManager beatManager = BeatManager.Get();
+
+        for (int i = 0; i < instruments.Length; i++)
+        {
+            Note note = instruments[i];
+
+            if (note.inputAction.WasPressedThisFrame())
+            {
+                Debug.Log(note.name);
+                float beatFloat = beatManager.GetBeatFloat();
+                int beatInt = (int)beatFloat;
+
+                if (beatFloat - beatInt <= lateAllow)
+                {
+                    ClearBeat(beatInt);
+                    SetNote(i, beatInt, true);
+                }
+                else if (1 + beatInt - beatFloat <= earlyAllow)
+                {
+                    beatInt += 1;
+                    if (beatInt > beatManager.beatCount) beatInt = 1;
+
+                    ClearBeat(beatInt);
+                    SetNote(i, beatInt, true);
+                }
+            }
+        }
     }
 }
