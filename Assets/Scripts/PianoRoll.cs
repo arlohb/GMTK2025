@@ -21,7 +21,8 @@ public class PianoRoll : MonoBehaviour
     private NoteBtn[,] noteBtns;
     private bool[,] notes;
     bool GetNote(int note, int beat) => notes[note, beat - 1];
-    void SetNote(int note, int beat, bool value) {
+    void SetNote(int note, int beat, bool value)
+    {
         notes[note, beat - 1] = value;
         noteBtns[note, beat - 1].IsEnabled = value;
     }
@@ -139,5 +140,31 @@ public class PianoRoll : MonoBehaviour
                 }
             }
         }
+    }
+
+    public Sequence GetSequence()
+    {
+        int beatCount = BeatManager.Get().beatCount;
+
+        Sequence sequence = ScriptableObject.CreateInstance<Sequence>();
+        sequence.notes = new Note[beatCount];
+
+        for (int i = 0; i < sequence.notes.Length; i++)
+        {
+            sequence.notes[i] = null;
+        }
+
+        for (int b = 0; b < beatCount; b++)
+        {
+            for (int i = 0; i < instruments.Length; i++)
+            {
+                if (notes[i, b])
+                {
+                    sequence.notes[b] = instruments[i];
+                }
+            }
+        }
+
+        return sequence;
     }
 }

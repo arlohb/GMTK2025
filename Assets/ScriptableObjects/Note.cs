@@ -10,4 +10,9 @@ public class Note : ScriptableObject
     public string playerMove;
     public InputAction inputAction;
     public string enemyMove;
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(playerMove, enemyMove);
+    }
 }
