@@ -1,20 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class PianoRoll : MonoBehaviour
 {
-    public int beatCount = 8;
     public float padding = 1;
-
-    public int bpm = 100;
-    private float beatLength;
-    private float barLength;
-    private int currentBeat = 0;
-    private int currentBar = 1;
-    private float startTime;
 
     public GameObject square;
 
@@ -22,24 +10,19 @@ public class PianoRoll : MonoBehaviour
     private AudioSource[] sources;
 
     private bool[,] notes;
-    private readonly List<Action<int, int>> listeners = new();
 
-    public void RegisterListener(Action<int, int> action)
-    {
-        listeners.Add(action);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        notes = new bool[instruments.Length, beatCount];
+        BeatManager beatManager = BeatManager.Get();
+        beatManager.RegisterListener(PlayBeat);
+        notes = new bool[instruments.Length, beatManager.beatCount];
 
         float xSize = square.GetComponent<Renderer>().bounds.size.x;
         float ySize = square.GetComponent<Renderer>().bounds.size.y;
 
         for (int y = 0; y < instruments.Length; y++)
         {
-            for (int x = 0; x < beatCount; x++)
+            for (int x = 0; x < beatManager.beatCount; x++)
             {
                 Vector3 position = new(
                     (xSize + padding) * x,
@@ -61,20 +44,10 @@ public class PianoRoll : MonoBehaviour
             sources[i] = source;
         }
 
-        startTime = Time.time;
-        beatLength = 60f / bpm;
-        barLength = beatCount * beatLength;
     }
 
-    void PlayBeat()
+    void PlayBeat(int _currentBar, int currentBeat)
     {
-        Debug.Log("Playing beat " + currentBar + "-" + currentBeat);
-
-        foreach (var action in listeners)
-        {
-            action(currentBar, currentBeat);
-        }
-
         for (int i = 0; i < instruments.Length; i++)
         {
             if (!notes[i, currentBeat - 1]) continue;
@@ -83,33 +56,8 @@ public class PianoRoll : MonoBehaviour
         }
     }
 
-    void UpdateBeat()
-    {
-        float currentTime = Time.time - startTime;
-        int bar = 1 + (int)(currentTime / barLength);
-
-        if (bar == currentBar)
-        {
-            float timeInBar = currentTime % barLength;
-            int beat = 1 + (int)(timeInBar / beatLength);
-
-            if (beat != currentBeat)
-            {
-                currentBeat = beat;
-                PlayBeat();
-            }
-        }
-        else
-        {
-            currentBeat = 1;
-            currentBar = bar;
-            PlayBeat();
-        }
-    }
-
     void Update()
     {
-        UpdateBeat();
     }
 
     void SetNote(int instrument, int beat, bool value)

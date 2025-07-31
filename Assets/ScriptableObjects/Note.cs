@@ -6,5 +6,6 @@ using UnityEngine.Audio;
 public class Note : ScriptableObject
 {
     public AudioResource source;
+    public string playerMove;
     public string enemyMove;
 }

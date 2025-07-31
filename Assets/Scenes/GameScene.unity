@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &300662183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300662185}
+  - component: {fileID: 300662184}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &300662184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300662183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899291f46963bcf24ae0ccc697553ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatCount: 4
+  bpm: 100
+--- !u!4 &300662185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300662183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.18343, y: -1.73624, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00c56f027fae0c48803f9f51c15a182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pianoRollObject: {fileID: 1337377818}
   sequence: {fileID: 11400000, guid: 372b7bcecddf41d07a2eead5fcfaaee3, type: 2}
 --- !u!1 &1174972003
 GameObject:
@@ -656,9 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f574aff46dd042eeba3e0cf92ea344d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatCount: 4
   padding: 0.8
-  bpm: 100
   square: {fileID: 5856300670068808718, guid: 51b25cdbcff8357ff900349b141b5ecf, type: 3}
   instruments:
   - {fileID: 11400000, guid: fb3f9d70b30068ec9b8a33e72958e05f, type: 2}
@@ -749,3 +792,4 @@ SceneRoots:
   - {fileID: 1429174718115841625}
   - {fileID: 1174972006}
   - {fileID: 959894985}
+  - {fileID: 300662185}
