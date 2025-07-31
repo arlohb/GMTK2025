@@ -14,4 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 8300000, guid: 2ddbfad8d9d3d6d96a0c44ee5d005d6f, type: 3}
   playerMove: L Block
+  inputAction:
+    m_Name: Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 04cabe4e-eee3-4a62-9fc1-5746501bea38
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8065a5f4-56df-4444-88e2-91d840a2689c
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
   enemyMove: L Swipe

@@ -14,4 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 8300000, guid: 12d04ae2e18e34174bc4b2c6f385f2ed, type: 3}
   playerMove: R Block
+  inputAction:
+    m_Name: Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 74ba6449-d002-4bad-b4d3-25400a07000a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5bd752c8-2919-48c1-8367-51f84d79adb2
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
   enemyMove: R Swipe

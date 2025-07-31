@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PianoRoll : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PianoRoll : MonoBehaviour
 
     public GameObject square;
     public GameObject rowLabel;
+    public GameObject rowKey;
 
     [Range(0f, 1f)]
     public float earlyAllow = 0.2f;
@@ -46,12 +48,22 @@ public class PianoRoll : MonoBehaviour
             GameObject newRowLabel = Instantiate(rowLabel, transform);
             newRowLabel.GetComponent<RectTransform>().pivot = new(1f, 0.5f);
             newRowLabel.GetComponent<RectTransform>().localPosition = new(
-                -1.5f,
+                -2.5f,
                 yPos,
                 0
             );
             newRowLabel.GetComponent<TextMeshPro>().text = instruments[y].playerMove
                 + "\n" + instruments[y].source.name;
+
+            GameObject newRowKey = Instantiate(rowKey, transform);
+            newRowKey.GetComponent<RectTransform>().pivot = new(1f, 0.5f);
+            newRowKey.GetComponent<RectTransform>().localPosition = new(
+                -1.5f,
+                yPos,
+                0
+            );
+            newRowKey.GetComponent<TextMeshPro>().text = instruments[y]
+                .inputAction.GetBindingDisplayString();
 
             for (int x = 0; x < beatManager.beatCount; x++)
             {
