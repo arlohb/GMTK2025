@@ -1,8 +1,9 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PianoRoll : MonoBehaviour
 {
-    public int rows = 3;
     public int beatCount = 8;
     public float padding = 1;
 
@@ -15,17 +16,20 @@ public class PianoRoll : MonoBehaviour
 
     public GameObject square;
 
+    public AudioResource[] instruments;
+    private AudioSource[] sources;
+
     private bool[,] notes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        notes = new bool[rows, beatCount];
+        notes = new bool[instruments.Length, beatCount];
 
         float xSize = square.GetComponent<Renderer>().bounds.size.x;
         float ySize = square.GetComponent<Renderer>().bounds.size.y;
 
-        for (int y = 0; y < rows; y++)
+        for (int y = 0; y < instruments.Length; y++)
         {
             for (int x = 0; x < beatCount; x++)
             {
@@ -42,6 +46,13 @@ public class PianoRoll : MonoBehaviour
             }
         }
 
+        sources = new AudioSource[instruments.Length];
+        for (int i = 0; i < instruments.Length; i++) {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            source.resource = instruments[i];
+            sources[i] = source;
+        }
+
         startTime = Time.time;
         beatLength = 60f / bpm;
         barLength = beatCount * beatLength;
@@ -50,7 +61,13 @@ public class PianoRoll : MonoBehaviour
     void PlayBeat()
     {
         Debug.Log("Playing beat " + currentBar + "-" + currentBeat);
-        GetComponent<AudioSource>().Play();
+
+        for (int i = 0; i < instruments.Length; i++)
+        {
+            if (!notes[i, currentBeat - 1]) continue;
+
+            sources[i].Play();
+        }
     }
 
     void UpdateBeat()
