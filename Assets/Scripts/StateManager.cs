@@ -26,6 +26,7 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         BeatManager.Get().RegisterListener(NewBeat);
+        State = GameState.Starting;
     }
 
     void NewBeat(int currentBar, int _currentBeat)
@@ -91,6 +92,18 @@ public class StateManager : MonoBehaviour
 
     public static void NextLevelBtn()
     {
-        SceneManager.LoadScene("MenuScene");
+        string name = SceneManager.GetActiveScene().name;
+        int current = int.Parse(name[5..]);
+        int next = current + 1;
+        string nextScene = "Level" + next.ToString().PadLeft(2, '0');
+
+        if (SceneUtility.GetBuildIndexByScenePath("Scenes/" + nextScene) != -1)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
     }
 }
