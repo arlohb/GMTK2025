@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class PianoRoll : MonoBehaviour
@@ -18,6 +19,7 @@ public class PianoRoll : MonoBehaviour
     public float lateAllow = 0.4f;
 
     public Note[] instruments;
+    public AudioMixerGroup mixer;
     private AudioSource[] sources;
 
     private NoteBtn[,] noteBtns;
@@ -94,6 +96,7 @@ public class PianoRoll : MonoBehaviour
         {
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.resource = instruments[i].source;
+            source.outputAudioMixerGroup = mixer;
             sources[i] = source;
 
             instruments[i].inputAction.Enable();
