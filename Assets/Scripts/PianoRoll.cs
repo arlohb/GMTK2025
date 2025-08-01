@@ -10,6 +10,8 @@ public class PianoRoll : MonoBehaviour
     public GameObject rowLabel;
     public GameObject rowKey;
 
+    public InputAction clearAction;
+
     [Range(0f, 1f)]
     public float earlyAllow = 0.2f;
     [Range(0f, 1f)]
@@ -29,6 +31,8 @@ public class PianoRoll : MonoBehaviour
 
     void Start()
     {
+        clearAction.Enable();
+
         BeatManager beatManager = BeatManager.Get();
         beatManager.RegisterListener(PlayBeat);
         notes = new bool[instruments.Length, beatManager.beatCount];
@@ -115,29 +119,35 @@ public class PianoRoll : MonoBehaviour
     {
         BeatManager beatManager = BeatManager.Get();
 
+        float beatFloat = beatManager.GetBeatFloat();
+        int beat = (int)beatFloat;
+
+        // If we are at the end of a beat
+        if (1 + beat - beatFloat <= earlyAllow)
+        {
+            beat += 1;
+            if (beat > beatManager.beatCount) beat = 1;
+        }
+        // If we not at the start of a beat
+        else if (beatFloat - beat > lateAllow)
+        {
+            return;
+        }
+
+        if (clearAction.WasPressedThisFrame())
+        {
+            ClearBeat(beat);
+            return;
+        }
+
         for (int i = 0; i < instruments.Length; i++)
         {
             Note note = instruments[i];
 
             if (note.inputAction.WasPressedThisFrame())
             {
-                Debug.Log(note.name);
-                float beatFloat = beatManager.GetBeatFloat();
-                int beatInt = (int)beatFloat;
-
-                if (beatFloat - beatInt <= lateAllow)
-                {
-                    ClearBeat(beatInt);
-                    SetNote(i, beatInt, true);
-                }
-                else if (1 + beatInt - beatFloat <= earlyAllow)
-                {
-                    beatInt += 1;
-                    if (beatInt > beatManager.beatCount) beatInt = 1;
-
-                    ClearBeat(beatInt);
-                    SetNote(i, beatInt, true);
-                }
+                ClearBeat(beat);
+                SetNote(i, beat, true);
             }
         }
     }

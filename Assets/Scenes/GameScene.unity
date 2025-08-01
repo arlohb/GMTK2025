@@ -1423,6 +1423,23 @@ MonoBehaviour:
   square: {fileID: 5856300670068808718, guid: 51b25cdbcff8357ff900349b141b5ecf, type: 3}
   rowLabel: {fileID: 9054056726027245494, guid: 5d99033d8568fc93aad1a5f1633e8f23, type: 3}
   rowKey: {fileID: 8562316759700276665, guid: 682dbb366715cc0298956fac7c445e0a, type: 3}
+  clearAction:
+    m_Name: Clear
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: beda5519-466c-4e9a-821b-414494b21dd6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5937deff-506c-4ddf-9f14-6dcdb9147d61
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Clear
+      m_Flags: 0
+    m_Flags: 0
   earlyAllow: 0.2
   lateAllow: 0.4
   instruments:
