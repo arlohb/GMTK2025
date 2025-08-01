@@ -1,20 +1,13 @@
-using TMPro;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Actor
 {
-    public Sequence sequence;
+    public Sequence enemySequence;
 
-    void Start()
+    public override void Start()
     {
-        BeatManager.Get().RegisterListener(NewBeat);
-    }
-
-    void NewBeat(int _currentBar, int currentBeat)
-    {
-        Note note = sequence.GetNote(currentBeat);
-        GetComponentInChildren<TextMeshPro>().SetText(note == null
-            ? "none"
-            : note.enemyMove.ToString());
+        base.Start();
+        Sequence = enemySequence;
+        isEnemy = true;
     }
 }

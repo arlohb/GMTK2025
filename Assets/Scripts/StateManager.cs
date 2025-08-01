@@ -10,7 +10,7 @@ public enum GameState
 
 public class StateManager : MonoBehaviour
 {
-    public Enemy enemy;
+    public Actor enemy;
     public PianoRoll pianoRoll;
     public TextMeshProUGUI countdown;
     public GameObject win;
@@ -46,7 +46,7 @@ public class StateManager : MonoBehaviour
         {
             // Check win state
 
-            Sequence enemySequence = enemy.sequence;
+            Sequence enemySequence = enemy.Sequence;
             Sequence playerSequence = pianoRoll.GetSequence();
 
             if (enemySequence.Equals(playerSequence))
