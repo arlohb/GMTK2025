@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestSequence
   m_EditorClassIdentifier: 
   notes:
+  - {fileID: 11400000, guid: fe1783004705cedc88af9433f0c7ea4d, type: 2}
+  - {fileID: 11400000, guid: b37d1fa7e5a04457c82f801330631557, type: 2}
   - {fileID: 11400000, guid: fb3f9d70b30068ec9b8a33e72958e05f, type: 2}
-  - {fileID: 11400000, guid: fe1783004705cedc88af9433f0c7ea4d, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: fe1783004705cedc88af9433f0c7ea4d, type: 2}
+  - {fileID: 11400000, guid: b37d1fa7e5a04457c82f801330631557, type: 2}
