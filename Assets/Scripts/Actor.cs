@@ -9,12 +9,9 @@ public class Actor : MonoBehaviour
     public Sequence Sequence { get; protected set; }
     public GameObject bullet;
 
-    private TextMeshPro text;
-
     public virtual void Start()
     {
         BeatManager.Get().RegisterListener(NewBeat);
-        text = GetComponentInChildren<TextMeshPro>();
     }
 
     void NewBeat(int _currentBar, int currentBeat)
@@ -24,8 +21,6 @@ public class Actor : MonoBehaviour
         Move move = note == null
             ? Move.None
             : isEnemy ? note.enemyMove : note.playerMove;
-
-        text.SetText(move.ToString());
 
         GameObject sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         List<Transform> children = sprite.GetComponentsInChildren<Transform>(true)
