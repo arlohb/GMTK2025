@@ -44,7 +44,11 @@ public class PianoRoll : MonoBehaviour
         float yHalfSize = Camera.main.orthographicSize;
         float xHalfSize = yHalfSize * Camera.main.aspect;
 
-        GetComponent<Transform>().position = new(-xHalfSize + 4.0f, 0, 0);
+        GetComponent<Transform>().position = new(
+            -xHalfSize + 4.0f,
+            -yHalfSize + 1.0f,
+            0
+        );
 
         for (int y = 0; y < instruments.Length; y++)
         {
@@ -63,7 +67,7 @@ public class PianoRoll : MonoBehaviour
             GameObject newRowKey = Instantiate(rowKey, transform);
             newRowKey.GetComponent<RectTransform>().pivot = new(1f, 0.5f);
             newRowKey.GetComponent<RectTransform>().localPosition = new(
-                -1.5f,
+                -0.75f,
                 yPos,
                 0
             );
