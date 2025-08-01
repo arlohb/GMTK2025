@@ -1,20 +1,48 @@
+using TMPro;
 using UnityEngine;
 
 public class Player : Actor
 {
     public PianoRoll pianoRoll;
+    public TextMeshProUGUI ammoText;
+
+    public int initialAmmo = 1;
+    private int ammo = 1;
+    public int Ammo {
+        get => ammo;
+        set
+        {
+            ammo = value;
+            ammoText.text = ammo.ToString().PadLeft(2, '0');
+        }
+    }
 
     public override void Start()
     {
         BeatManager.Get().RegisterListener(NewBeat);
         Sequence = pianoRoll.GetSequence();
+        Ammo = initialAmmo;
 
-        // We want out listener before Actor's
+        // We want our listener before Actor's
         base.Start();
     }
 
-    void NewBeat(int _currentBar, int _currentBeat)
+    void NewBeat(int _currentBar, int currentBeat)
     {
         Sequence = pianoRoll.GetSequence();
+        if (currentBeat == 1) Ammo = initialAmmo;
+    }
+
+    protected override void Shoot()
+    {
+        if (Ammo <= 0) return;
+        base.Shoot();
+        Ammo -= 1;
+    }
+
+    protected override void Charge()
+    {
+        base.Charge();
+        Ammo += 1;
     }
 }

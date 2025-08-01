@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
 public class Actor : MonoBehaviour
@@ -22,6 +21,27 @@ public class Actor : MonoBehaviour
             ? Move.None
             : isEnemy ? note.enemyMove : note.playerMove;
 
+        DoMove(move);
+    }
+
+    protected virtual void Shoot()
+    {
+        GameObject sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+        List<Transform> children = sprite.GetComponentsInChildren<Transform>(true)
+            .Where(t => t.name != sprite.name)
+            .ToList();
+
+        children
+            .Where(t => t.name == "BulletOrigin")
+            .ToList()
+            .ForEach(t =>
+            {
+                Instantiate(bullet, t.position, t.rotation);
+            });
+    }
+
+    protected virtual void Shield(bool isShield)
+    {
         GameObject sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         List<Transform> children = sprite.GetComponentsInChildren<Transform>(true)
             .Where(t => t.name != sprite.name)
@@ -30,17 +50,16 @@ public class Actor : MonoBehaviour
         children
             .Where(t => t.name == "Shield")
             .ToList()
-            .ForEach(t => t.gameObject.SetActive(move == Move.Shield));
+            .ForEach(t => t.gameObject.SetActive(isShield));
+    }
+    
+    protected virtual void Charge() {}
 
-        if (move == Move.Shoot)
-        {
-            children
-                .Where(t => t.name == "BulletOrigin")
-                .ToList()
-                .ForEach(t =>
-                {
-                    Instantiate(bullet, t.position, t.rotation);
-                });
-        }
+    protected void DoMove(Move move)
+    {
+        Shield(move == Move.Shield);
+
+        if (move == Move.Shoot) Shoot();
+        else if (move == Move.Charge) Charge();
     }
 }
