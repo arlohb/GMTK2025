@@ -7,6 +7,7 @@ public class Actor : MonoBehaviour
 {
     protected bool isEnemy = false;
     public Sequence Sequence { get; protected set; }
+    public GameObject bullet;
 
     private TextMeshPro text;
 
@@ -35,5 +36,16 @@ public class Actor : MonoBehaviour
             .Where(t => t.name == "Shield")
             .ToList()
             .ForEach(t => t.gameObject.SetActive(move == Move.Shield));
+
+        if (move == Move.Shoot)
+        {
+            children
+                .Where(t => t.name == "BulletOrigin")
+                .ToList()
+                .ForEach(t =>
+                {
+                    Instantiate(bullet, t.position, t.rotation);
+                });
+        }
     }
 }

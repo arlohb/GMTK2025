@@ -150,6 +150,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 522771121}
+  - {fileID: 271549990}
+  - {fileID: 379701362}
   m_Father: {fileID: 1158866968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &82435368
@@ -207,6 +209,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &271549989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271549990}
+  m_Layer: 0
+  m_Name: BulletOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &271549990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271549989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31, y: 0.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 82435367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300662183
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +757,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341844980}
   m_CullTransparentMesh: 1
+--- !u!1 &379701361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379701362}
+  m_Layer: 0
+  m_Name: BulletOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &379701362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379701361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.31, y: 0.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 82435367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b3951e54759199ade6b0389d6ba0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 8466310786802663785, guid: 7e79c6b144afc2f91a9aaec838a92684, type: 3}
   pianoRoll: {fileID: 1337377819}
 --- !u!1 &1174972003
 GameObject:
@@ -1798,6 +1863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7e58ddb2e415254b9030446bc7cf38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 8466310786802663785, guid: 7e79c6b144afc2f91a9aaec838a92684, type: 3}
   enemySequence: {fileID: 11400000, guid: 372b7bcecddf41d07a2eead5fcfaaee3, type: 2}
 --- !u!1 &1255187455
 GameObject:
