@@ -9,7 +9,7 @@ public class Sequence : ScriptableObject, IEquatable<Sequence>
 
     public Note GetNote(int beat)
     {
-        return notes[beat - 1];
+        return notes[(beat - 1) % notes.Length];
     }
 
     public override int GetHashCode()
