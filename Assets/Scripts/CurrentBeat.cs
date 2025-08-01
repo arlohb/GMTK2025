@@ -24,6 +24,8 @@ public class CurrentBeat : MonoBehaviour
         );
 
         xOffset = squareWidth + pianoRoll.padding;
+
+        NewBeat(1, 1);
     }
 
     void NewBeat(int _currentBar, int currentBeat)

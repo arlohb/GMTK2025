@@ -18,6 +18,7 @@ public class BeatManager : MonoBehaviour
     [HideInInspector]
     public int CurrentBar { get; private set; } = 1;
 
+    private bool running = false;
     private float beatLength;
     private float barLength;
     private float startTime;
@@ -28,11 +29,16 @@ public class BeatManager : MonoBehaviour
         listeners.Add(action);
     }
 
+    public void StartRunning()
+    {
+        running = true;
+        startTime = Time.time;
+    }
+
     void Start()
     {
         instance = this;
 
-        startTime = Time.time;
         beatLength = 60f / bpm;
         barLength = beatCount * beatLength;
     }
@@ -57,6 +63,8 @@ public class BeatManager : MonoBehaviour
 
     void Update()
     {
+        if (!running) return;
+
         float currentTime = Time.time - startTime;
         int bar = 1 + (int)(currentTime / barLength);
 
