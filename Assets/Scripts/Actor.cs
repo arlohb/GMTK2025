@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -18,13 +20,20 @@ public class Actor : MonoBehaviour
     {
         Note note = Sequence.GetNote(currentBeat);
 
-        if (note == null)
-        {
-            text.SetText("none");
-            return;
-        }
+        Move move = note == null
+            ? Move.None
+            : isEnemy ? note.enemyMove : note.playerMove;
 
-        Move move = isEnemy ? note.enemyMove : note.playerMove;
         text.SetText(move.ToString());
+
+        GameObject sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+        List<Transform> children = sprite.GetComponentsInChildren<Transform>(true)
+            .Where(t => t.name != sprite.name)
+            .ToList();
+
+        children
+            .Where(t => t.name == "Shield")
+            .ToList()
+            .ForEach(t => t.gameObject.SetActive(move == Move.Shield));
     }
 }
