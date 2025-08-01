@@ -26,7 +26,6 @@ public class NoteBtn : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Test" + instrument + beat);
         IsEnabled = !IsEnabled;
         setNote(instrument, beat, IsEnabled);
     }

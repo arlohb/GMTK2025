@@ -45,8 +45,6 @@ public class BeatManager : MonoBehaviour
 
     void PlayBeat()
     {
-        Debug.Log("Playing beat " + CurrentBar + "-" + CurrentBeat);
-
         foreach (var action in listeners)
         {
             action(CurrentBar, CurrentBeat);
