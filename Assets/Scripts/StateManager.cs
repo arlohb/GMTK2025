@@ -5,6 +5,7 @@ public enum GameState
 {
     Starting,
     Playing,
+    AboutToWin,
     Won,
 }
 
@@ -33,14 +34,12 @@ public class StateManager : MonoBehaviour
 
         // Bar just changed, check win state
 
-        if (State == GameState.Won)
+        if (State == GameState.AboutToWin)
         {
-            // Already won last bar, quit game
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            State = GameState.Won;
+            win.SetActive(true);
+            // Do big enemy death animation here
+            // Enable next level / menu buttons here
         }
         else
         {
@@ -51,8 +50,7 @@ public class StateManager : MonoBehaviour
 
             if (enemySequence.Equals(playerSequence))
             {
-                State = GameState.Won;
-                win.SetActive(true);
+                State = GameState.AboutToWin;
             }
         }
     }
