@@ -16,6 +16,7 @@ public class StateManager : MonoBehaviour
     public PianoRoll pianoRoll;
     public TextMeshProUGUI countdown;
     public GameObject win;
+    public TextMeshProUGUI endBarText;
     public float countdownLength = 3f;
     public float countdownScale = 1f;
 
@@ -34,14 +35,18 @@ public class StateManager : MonoBehaviour
         if (lastBar == currentBar) return;
         lastBar = currentBar;
 
+        if (State == GameState.Won) return;
+
         // Bar just changed, check win state
 
         if (State == GameState.AboutToWin)
         {
             State = GameState.Won;
-            win.SetActive(true);
+
             // Do big enemy death animation here
-            // Enable next level / menu buttons here
+
+            win.SetActive(true);
+            endBarText.text = $"Won in {currentBar} bars!";
         }
         else
         {

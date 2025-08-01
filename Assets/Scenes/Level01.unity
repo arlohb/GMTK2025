@@ -309,6 +309,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1627940607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7853217765748045271, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+  m_PrefabInstance: {fileID: 2333786928771249936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1844700443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1699398441803940764, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
@@ -681,6 +692,10 @@ PrefabInstance:
       propertyPath: pianoRoll
       value: 
       objectReference: {fileID: 1337377819}
+    - target: {fileID: 2668782792517114459, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
+      propertyPath: endBarText
+      value: 
+      objectReference: {fileID: 1627940607}
     - target: {fileID: 4198212367215415183, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: m_Name
       value: GameManager
