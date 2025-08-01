@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snare
   m_EditorClassIdentifier: 
   source: {fileID: 8300000, guid: 12d04ae2e18e34174bc4b2c6f385f2ed, type: 3}
-  playerMove: R Block
+  playerMove: Shield
   inputAction:
     m_Name: Input
     m_Type: 1
@@ -24,11 +24,11 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 5bd752c8-2919-48c1-8367-51f84d79adb2
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
-  enemyMove: R Swipe
+  enemyMove: 1

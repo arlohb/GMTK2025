@@ -1,6 +1,13 @@
 using TMPro;
 using UnityEngine;
 
+public enum EnemyMove
+{
+    None,
+    Shoot,
+    Shield,
+}
+
 public class Enemy : MonoBehaviour
 {
     public Sequence sequence;
@@ -13,8 +20,8 @@ public class Enemy : MonoBehaviour
     void NewBeat(int _currentBar, int currentBeat)
     {
         Note note = sequence.GetNote(currentBeat);
-        GetComponent<TextMeshPro>().SetText(note == null
+        GetComponentInChildren<TextMeshPro>().SetText(note == null
             ? "none"
-            : note.enemyMove);
+            : note.enemyMove.ToString());
     }
 }

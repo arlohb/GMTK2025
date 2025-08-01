@@ -9,7 +9,7 @@ public class Note : ScriptableObject
     public AudioResource source;
     public string playerMove;
     public InputAction inputAction;
-    public string enemyMove;
+    public EnemyMove enemyMove;
 
     public override int GetHashCode()
     {
