@@ -1,13 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-public enum EnemyMove
-{
-    None,
-    Shoot,
-    Shield,
-}
-
 public class Enemy : MonoBehaviour
 {
     public Sequence sequence;

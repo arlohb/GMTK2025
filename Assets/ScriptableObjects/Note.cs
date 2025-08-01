@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 public class Note : ScriptableObject
 {
     public AudioResource source;
-    public string playerMove;
     public InputAction inputAction;
-    public EnemyMove enemyMove;
+    public Move playerMove;
+    public Move enemyMove;
 
     public override int GetHashCode()
     {
