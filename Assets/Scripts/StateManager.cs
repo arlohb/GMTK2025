@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -81,5 +82,15 @@ public class StateManager : MonoBehaviour
                     : countdownInt.ToString();
             }
         }
+    }
+
+    public static void MenuBtn()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
+    public static void NextLevelBtn()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 }
