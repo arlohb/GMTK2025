@@ -22,8 +22,6 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         BeatManager.Get().RegisterListener(NewBeat);
-
-        /* Time.timeScale = 0f; */
     }
 
     void NewBeat(int currentBar, int _currentBeat)
@@ -49,18 +47,17 @@ public class StateManager : MonoBehaviour
     void PlayingTransition()
     {
         state = GameState.Playing;
-        Time.timeScale = 1f;
         countdown.gameObject.SetActive(false);
         BeatManager.Get().StartRunning();
     }
 
     void Update()
     {
-        if (startTime == -1) startTime = Time.unscaledTime;
+        if (startTime == -1) startTime = Time.time;
 
         if (state == GameState.Starting)
         {
-            float elapsedTime = (Time.unscaledTime - startTime) / countdownScale;
+            float elapsedTime = (Time.time - startTime) / countdownScale;
             if (elapsedTime > countdownLength)
             {
                 PlayingTransition();
