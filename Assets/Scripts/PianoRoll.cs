@@ -117,6 +117,9 @@ public class PianoRoll : MonoBehaviour
 
     void Update()
     {
+        if (StateManager.State == GameState.Starting) return;
+        if (StateManager.State == GameState.Won) return;
+
         BeatManager beatManager = BeatManager.Get();
 
         float beatFloat = beatManager.GetBeatFloat();

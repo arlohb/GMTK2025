@@ -4,7 +4,8 @@ using UnityEngine;
 public enum GameState
 {
     Starting,
-    Playing
+    Playing,
+    Won,
 }
 
 public class StateManager : MonoBehaviour
@@ -12,10 +13,11 @@ public class StateManager : MonoBehaviour
     public Enemy enemy;
     public PianoRoll pianoRoll;
     public TextMeshProUGUI countdown;
+    public GameObject win;
     public float countdownLength = 3f;
     public float countdownScale = 1f;
 
-    private GameState state = GameState.Starting;
+    public static GameState State { get; private set; } = GameState.Starting;
     private float startTime = -1;
     private int lastBar;
 
@@ -31,22 +33,33 @@ public class StateManager : MonoBehaviour
 
         // Bar just changed, check win state
 
-        Sequence enemySequence = enemy.sequence;
-        Sequence playerSequence = pianoRoll.GetSequence();
-
-        if (enemySequence.Equals(playerSequence))
+        if (State == GameState.Won)
         {
+            // Already won last bar, quit game
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
             Application.Quit();
 #endif
         }
+        else
+        {
+            // Check win state
+
+            Sequence enemySequence = enemy.sequence;
+            Sequence playerSequence = pianoRoll.GetSequence();
+
+            if (enemySequence.Equals(playerSequence))
+            {
+                State = GameState.Won;
+                win.SetActive(true);
+            }
+        }
     }
 
     void PlayingTransition()
     {
-        state = GameState.Playing;
+        State = GameState.Playing;
         countdown.gameObject.SetActive(false);
         BeatManager.Get().StartRunning();
     }
@@ -55,7 +68,7 @@ public class StateManager : MonoBehaviour
     {
         if (startTime == -1) startTime = Time.time;
 
-        if (state == GameState.Starting)
+        if (State == GameState.Starting)
         {
             float elapsedTime = (Time.time - startTime) / countdownScale;
             if (elapsedTime > countdownLength)
