@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 347b3951e54759199ade6b0389d6ba0d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bullet: {fileID: -2253911629886400664, guid: da3f4070d182b4457b2712f416ee166e, type: 3}
+  - pianoRoll: {instanceID: 0}
+  - ammoText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
