@@ -4,6 +4,7 @@ public class Metronome : MonoBehaviour
 {
     public AudioSource firstBeat;
     public AudioSource beat;
+    public AudioSource background;
 
     void Start()
     {
@@ -12,6 +13,8 @@ public class Metronome : MonoBehaviour
 
     void NewBeat(int _currentBar, int currentBeat)
     {
+        if ((currentBeat - 1) % 4 == 0) background.Play();
+
         if (currentBeat == 1)
         {
             firstBeat.Play();
