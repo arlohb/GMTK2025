@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065fcd745f07de7e9b2cb389fae5d197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pitchBendMixer: {fileID: 6348220480339234857, guid: 3d59cb0fd62ad37e08cccd33ec468dab, type: 2}
   firstBeat: {fileID: 4514640810655478736}
   beat: {fileID: 9197859572080421793}
   background: {fileID: 5476785564325468293}
