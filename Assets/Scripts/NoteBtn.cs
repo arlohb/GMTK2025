@@ -1,9 +1,6 @@
 using System;
-using System.Runtime.CompilerServices;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class NoteBtn : MonoBehaviour, IPointerClickHandler
 {
