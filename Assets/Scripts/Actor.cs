@@ -8,6 +8,11 @@ public class Actor : MonoBehaviour
     public Sequence Sequence { get; protected set; }
     public GameObject bullet;
 
+    // Whether we've been hit this beat
+    // As we can only be hit once per beat,
+    // even though multiple bullets might hit us
+    private bool hasBeenHit = false;
+
     public virtual void Start()
     {
         BeatManager.Get().RegisterListener(NewBeat);
@@ -15,6 +20,8 @@ public class Actor : MonoBehaviour
 
     void NewBeat(int _currentBar, int currentBeat)
     {
+        hasBeenHit = false;
+
         Note note = Sequence.GetNote(currentBeat);
 
         Move move = note == null
@@ -36,7 +43,8 @@ public class Actor : MonoBehaviour
             .ToList()
             .ForEach(t =>
             {
-                Instantiate(bullet, t.position, t.rotation);
+                GameObject newBullet = Instantiate(bullet, t.position, t.rotation);
+                newBullet.GetComponent<Bullet>().isFromEnemy = isEnemy;
             });
     }
 
@@ -52,8 +60,8 @@ public class Actor : MonoBehaviour
             .ToList()
             .ForEach(t => t.gameObject.SetActive(isShield));
     }
-    
-    protected virtual void Charge() {}
+
+    protected virtual void Charge() { }
 
     protected void DoMove(Move move)
     {
@@ -61,5 +69,17 @@ public class Actor : MonoBehaviour
 
         if (move == Move.Shoot) Shoot();
         else if (move == Move.Charge) Charge();
+    }
+
+    public virtual bool Hit(bool isFromEnemy)
+    {
+        // If this is our own bullet, ignore hit
+        if (isFromEnemy == isEnemy) return false;
+
+        // If we've already been hit, ignore hit
+        if (hasBeenHit) return false;
+
+        hasBeenHit = true;
+        return true;
     }
 }
