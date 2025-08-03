@@ -13,6 +13,12 @@ public class Enemy : Actor
         set
         {
             health = value;
+
+            if (health == 0)
+            {
+                Die();
+            }
+
             float percent = (float)health / initialHealth;
 
             healthForeground.localScale = new(

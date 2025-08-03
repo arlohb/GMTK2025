@@ -12,6 +12,7 @@ public class Actor : MonoBehaviour
     // As we can only be hit once per beat,
     // even though multiple bullets might hit us
     private bool hasBeenHit = false;
+    protected bool isShielding = false;
 
     public virtual void Start()
     {
@@ -33,6 +34,7 @@ public class Actor : MonoBehaviour
 
     protected virtual void Shoot()
     {
+        isShielding = false;
         GameObject sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         List<Transform> children = sprite.GetComponentsInChildren<Transform>(true)
             .Where(t => t.name != sprite.name)
@@ -50,6 +52,7 @@ public class Actor : MonoBehaviour
 
     protected virtual void Shield(bool isShield)
     {
+        isShielding = true;
         GameObject sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         List<Transform> children = sprite.GetComponentsInChildren<Transform>(true)
             .Where(t => t.name != sprite.name)
@@ -61,7 +64,10 @@ public class Actor : MonoBehaviour
             .ForEach(t => t.gameObject.SetActive(isShield));
     }
 
-    protected virtual void Charge() { }
+    protected virtual void Charge()
+    {
+        isShielding = false;
+    }
 
     protected void DoMove(Move move)
     {
@@ -69,6 +75,7 @@ public class Actor : MonoBehaviour
 
         if (move == Move.Shoot) Shoot();
         else if (move == Move.Charge) Charge();
+        else if (move == Move.None) isShielding = false;
     }
 
     public virtual bool Hit(bool isFromEnemy)
@@ -81,5 +88,14 @@ public class Actor : MonoBehaviour
 
         hasBeenHit = true;
         return true;
+    }
+
+    protected void Die()
+    {
+        Debug.Log(isShielding);
+        if (!isShielding)
+        {
+            GetComponentInChildren<Animator>().Play("Explosion");
+        }
     }
 }

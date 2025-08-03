@@ -8,7 +8,8 @@ public class Player : Actor
 
     public int initialAmmo = 1;
     private int ammo = 1;
-    public int Ammo {
+    public int Ammo
+    {
         get => ammo;
         set
         {
@@ -16,6 +17,8 @@ public class Player : Actor
             ammoText.text = ammo.ToString().PadLeft(2, '0');
         }
     }
+
+    private bool isDead = false;
 
     public override void Start()
     {
@@ -30,11 +33,16 @@ public class Player : Actor
     void NewBeat(int _currentBar, int currentBeat)
     {
         Sequence = pianoRoll.GetSequence();
-        if (currentBeat == 1) Ammo = initialAmmo;
+        if (currentBeat == 1)
+        {
+            Ammo = initialAmmo;
+            isDead = false;
+        }
     }
 
     protected override void Shoot()
     {
+        isShielding = false;
         if (Ammo <= 0) return;
         base.Shoot();
         Ammo -= 1;
@@ -44,5 +52,15 @@ public class Player : Actor
     {
         base.Charge();
         Ammo += 1;
+    }
+
+    public override bool Hit(bool isFromEnemy)
+    {
+        if (!base.Hit(isFromEnemy)) return false;
+
+        if (isDead == false) Die();
+        isDead = true;
+
+        return true;
     }
 }
