@@ -108,7 +108,7 @@ public class StateManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("MenuScene");
+            SceneManager.LoadScene("EndScene");
         }
     }
 }
