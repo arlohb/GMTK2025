@@ -92,6 +92,9 @@ public class Actor : MonoBehaviour
         // If this is our own bullet, ignore hit
         if (isFromEnemy == isEnemy) return false;
 
+        // If we're shielding, ignore hit
+        if (isShielding) return false;
+
         // If we've already been hit, ignore hit
         if (hasBeenHit) return false;
 
