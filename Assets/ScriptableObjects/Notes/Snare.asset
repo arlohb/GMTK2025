@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 5bd752c8-2919-48c1-8367-51f84d79adb2
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
       m_Groups: 
