@@ -529,7 +529,10 @@ MonoBehaviour:
     Spaceships - CC BY 4.0 https://opengameart.org/content/spaceships-32x32
 
     Explosions
-    - CC0 https://ansimuz.itch.io/explosion-animations-pack'
+    - CC0 https://ansimuz.itch.io/explosion-animations-pack
+
+    Font - CC BY 4.0
+    https://www.dafont.com/digital-disco.font'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f46a2ed15942548399db31a887fbf1f, type: 2}
   m_sharedMaterial: {fileID: 2530011279388059151, guid: 2f46a2ed15942548399db31a887fbf1f, type: 2}
@@ -1137,19 +1140,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.21195653
       objectReference: {fileID: 0}
     - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.054584265
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.57608694
       objectReference: {fileID: 0}
     - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8908315
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5518933070195971609, guid: 587d4831049f308db8c8fce164636083, type: 3}
       propertyPath: m_Name
