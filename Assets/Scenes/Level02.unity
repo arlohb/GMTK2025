@@ -183,6 +183,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.060159683
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062232766777550113, guid: 587d4831049f308db8c8fce164636083, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.87968063
+      objectReference: {fileID: 0}
     - target: {fileID: 5518933070195971609, guid: 587d4831049f308db8c8fce164636083, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -309,6 +325,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1627940607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7853217765748045271, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+  m_PrefabInstance: {fileID: 2333786928771249936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1844700443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1699398441803940764, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
@@ -375,7 +402,7 @@ PrefabInstance:
     - target: {fileID: 5584158797790885346, guid: a51f826bd60d01c95b29caedd3524f6e, type: 3}
       propertyPath: enemySequence
       value: 
-      objectReference: {fileID: 11400000, guid: 6782b4d87654e26049e565a72d2a8bdf, type: 2}
+      objectReference: {fileID: 11400000, guid: 51859b3b8f59d6be3937224bb8f6ef53, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -393,6 +420,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 300662186}
+    - target: {fileID: 2533096993848686113, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533096993848686113, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533096993848686113, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533096993848686113, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3088739792985856934, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
       propertyPath: m_Camera
       value: 
@@ -481,6 +524,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6216446464736988147, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+      propertyPath: m_text
+      value: 'The ''Charge'' instrument gives you more ammo
+
+
+        Ammo resets
+        on each loop
+
+
+        Press ''X'' to clear a beat of notes
+
+
+        The
+        enemy does the same thing each loop'
+      objectReference: {fileID: 0}
     - target: {fileID: 9051220341527286901, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -490,17 +548,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
---- !u!114 &2333786928771249937 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7853217765748045271, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
-  m_PrefabInstance: {fileID: 2333786928771249936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3953880150170190061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -566,6 +613,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 939760577972376026, guid: 5d14d3498880d3868ad1ca07a368eea9, type: 3}
+      propertyPath: instruments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 939760577972376026, guid: 5d14d3498880d3868ad1ca07a368eea9, type: 3}
+      propertyPath: 'instruments.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b37d1fa7e5a04457c82f801330631557, type: 2}
+    - target: {fileID: 939760577972376026, guid: 5d14d3498880d3868ad1ca07a368eea9, type: 3}
+      propertyPath: 'instruments.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fb3f9d70b30068ec9b8a33e72958e05f, type: 2}
     - target: {fileID: 6296819144083863105, guid: 5d14d3498880d3868ad1ca07a368eea9, type: 3}
       propertyPath: m_Name
       value: PianoRoll
@@ -667,6 +726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global Light 2D
       objectReference: {fileID: 0}
+    - target: {fileID: 6274072791616401550, guid: d48924987c533c149a0c98bb087709be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -699,7 +762,7 @@ PrefabInstance:
     - target: {fileID: 2668782792517114459, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: endBarText
       value: 
-      objectReference: {fileID: 2333786928771249937}
+      objectReference: {fileID: 1627940607}
     - target: {fileID: 4198212367215415183, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -746,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9059623397600886261, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: beatCount
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -813,6 +876,10 @@ PrefabInstance:
       propertyPath: pianoRoll
       value: 
       objectReference: {fileID: 1337377819}
+    - target: {fileID: 4020517375879053700, guid: 8d0c847949821babe8975e3a8816bd1d, type: 3}
+      propertyPath: initialAmmo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

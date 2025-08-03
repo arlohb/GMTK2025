@@ -317,17 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1627940607 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7853217765748045271, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
-  m_PrefabInstance: {fileID: 2333786928771249936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1844700443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1699398441803940764, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
@@ -391,6 +380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5584158797790885346, guid: a51f826bd60d01c95b29caedd3524f6e, type: 3}
+      propertyPath: enemySequence
+      value: 
+      objectReference: {fileID: 11400000, guid: 6782b4d87654e26049e565a72d2a8bdf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -404,10 +397,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1767941669580353277, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 62.190002
-      objectReference: {fileID: 0}
     - target: {fileID: 1993572851625915928, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -525,6 +514,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+--- !u!114 &2333786928771249937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7853217765748045271, guid: 6a10a3b87b54d6c82a2be1736de65374, type: 3}
+  m_PrefabInstance: {fileID: 2333786928771249936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3953880150170190061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,10 +691,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global Light 2D
       objectReference: {fileID: 0}
-    - target: {fileID: 6274072791616401550, guid: d48924987c533c149a0c98bb087709be, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -727,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 2668782792517114459, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: endBarText
       value: 
-      objectReference: {fileID: 1627940607}
+      objectReference: {fileID: 2333786928771249937}
     - target: {fileID: 4198212367215415183, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -771,6 +767,10 @@ PrefabInstance:
     - target: {fileID: 5458444365083183950, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059623397600886261, guid: 706f5eac446a401f7ae51fea59002def, type: 3}
+      propertyPath: beatCount
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
