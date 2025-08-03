@@ -10,25 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de69779026eafd98981d873ea2d194bc, type: 3}
-  m_Name: HiHatOpen
+  m_Name: Bass
   m_EditorClassIdentifier: 
-  source: {fileID: 8300000, guid: d880be4930ea2b7da9cf765583f39d96, type: 3}
+  source: {fileID: 8300000, guid: 2ddbfad8d9d3d6d96a0c44ee5d005d6f, type: 3}
   inputAction:
     m_Name: Input
     m_Type: 1
     m_ExpectedControlType: Button
-    m_Id: 529d7a8d-7ab3-4e53-b25b-06a18da71c75
+    m_Id: 04cabe4e-eee3-4a62-9fc1-5746501bea38
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: f6e7faa7-cc36-4d13-bbc0-3f8dd0d223f9
-      m_Path: <Keyboard>/a
+      m_Id: 8065a5f4-56df-4444-88e2-91d840a2689c
+      m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
-  playerMove: 1
-  enemyMove: 3
+  playerMove: 3
+  enemyMove: 2
+  icon: {fileID: 1867463686245848414, guid: bf5fb2871ed4fcf8097a50e8b4190cbc, type: 3}

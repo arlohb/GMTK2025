@@ -32,3 +32,4 @@ MonoBehaviour:
     m_Flags: 0
   playerMove: 2
   enemyMove: 1
+  icon: {fileID: 1880565043517193040, guid: debfa5601f451d02f85b08a8772af750, type: 3}

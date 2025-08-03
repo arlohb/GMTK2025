@@ -10,6 +10,7 @@ public class Note : ScriptableObject
     public InputAction inputAction;
     public Move playerMove;
     public Move enemyMove;
+    public Sprite icon;
 
     public override int GetHashCode()
     {

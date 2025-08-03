@@ -47,7 +47,7 @@ public class PianoRoll : MonoBehaviour
         float xHalfSize = yHalfSize * Camera.main.aspect;
 
         GetComponent<Transform>().position = new(
-            -xHalfSize + 4.0f,
+            -xHalfSize + 5.0f,
             -yHalfSize + 1.0f,
             0
         );
@@ -59,12 +59,12 @@ public class PianoRoll : MonoBehaviour
             GameObject newRowLabel = Instantiate(rowLabel, transform);
             newRowLabel.GetComponent<RectTransform>().pivot = new(1f, 0.5f);
             newRowLabel.GetComponent<RectTransform>().localPosition = new(
-                -2.5f,
+                -3.25f,
                 yPos,
                 0
             );
-            newRowLabel.GetComponent<TextMeshPro>().text = instruments[y].playerMove
-                + "\n" + instruments[y].source.name;
+            newRowLabel.GetComponent<TextMeshPro>().text = instruments[y].source.name;
+            newRowLabel.GetComponentInChildren<SpriteRenderer>().sprite = instruments[y].icon;
 
             GameObject newRowKey = Instantiate(rowKey, transform);
             newRowKey.GetComponent<RectTransform>().pivot = new(1f, 0.5f);
