@@ -13,6 +13,7 @@ public class Actor : MonoBehaviour
     // even though multiple bullets might hit us
     private bool hasBeenHit = false;
     protected bool isShielding = false;
+    protected bool isDead = false;
 
     public virtual void Start()
     {
@@ -22,6 +23,8 @@ public class Actor : MonoBehaviour
     void NewBeat(int _currentBar, int currentBeat)
     {
         hasBeenHit = false;
+
+        if (currentBeat == 1) isDead = false;
 
         Note note = Sequence.GetNote(currentBeat);
 
@@ -71,6 +74,8 @@ public class Actor : MonoBehaviour
 
     protected void DoMove(Move move)
     {
+        if (isDead) return;
+
         Shield(move == Move.Shield);
 
         if (move == Move.Shoot) Shoot();
@@ -92,9 +97,9 @@ public class Actor : MonoBehaviour
 
     protected void Die()
     {
-        Debug.Log(isShielding);
         if (!isShielding)
         {
+            isDead = true;
             GetComponentInChildren<Animator>().Play("Explosion");
         }
     }

@@ -18,8 +18,6 @@ public class Player : Actor
         }
     }
 
-    private bool isDead = false;
-
     public override void Start()
     {
         BeatManager.Get().RegisterListener(NewBeat);
@@ -59,7 +57,6 @@ public class Player : Actor
         if (!base.Hit(isFromEnemy)) return false;
 
         if (isDead == false) Die();
-        isDead = true;
 
         return true;
     }
