@@ -24,7 +24,11 @@ public class Actor : MonoBehaviour
     {
         hasBeenHit = false;
 
-        if (currentBeat == 1) isDead = false;
+        if (currentBeat == 1)
+        {
+            isDead = false;
+            GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        }
 
         Note note = Sequence.GetNote(currentBeat);
 
@@ -101,6 +105,7 @@ public class Actor : MonoBehaviour
         {
             isDead = true;
             GetComponentInChildren<Animator>().Play("Explosion");
+            GetComponentInChildren<SpriteRenderer>().color = Color.gray;
         }
     }
 }
